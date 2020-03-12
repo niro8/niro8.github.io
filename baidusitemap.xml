@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>https://niro8.github.io/office-with-python.html</loc>
+    <lastmod>2020-03-12T01:23:39.091Z</lastmod>
+    <data>
+        <display>
+        <title>用python操作office软件</title>
+        <pubTime>2019-11-30T03:52:28.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>office</tag>
+         
+        <tag>word</tag>
+         
+        <tag>excel</tag>
+         
+        <tag>openpyxl</tag>
+         
+        <tag>pywin32</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/hands-on-machine-learing-chapter2-notes.html</loc>
+    <lastmod>2019-12-12T03:04:47.837Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习实战第2章笔记</title>
+        <pubTime>2019-12-06T13:17:49.000Z</pubTime>
+        
+        <tag>机器学习实战</tag>
+         
+        <tag>machine learning</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/hands-on-chapter3-notes.html</loc>
+    <lastmod>2019-12-09T05:36:46.236Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习实战第3章笔记</title>
+        <pubTime>2019-12-09T02:06:08.000Z</pubTime>
+        
+        <tag>机器学习实战</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/pandas-notes.html</loc>
+    <lastmod>2019-12-06T13:27:30.242Z</lastmod>
+    <data>
+        <display>
+        <title>pandas笔记</title>
+        <pubTime>2019-12-06T06:18:43.000Z</pubTime>
+        
+        <tag>pandas</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/matplotlib-notes.html</loc>
+    <lastmod>2019-12-04T14:11:29.591Z</lastmod>
+    <data>
+        <display>
+        <title>matplotlib笔记</title>
+        <pubTime>2019-12-03T13:45:19.000Z</pubTime>
+        
+        <tag>matplotlib</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/selenium-notes.html</loc>
+    <lastmod>2019-12-01T08:00:50.264Z</lastmod>
+    <data>
+        <display>
+        <title>selenium笔记</title>
+        <pubTime>2019-12-01T07:49:43.000Z</pubTime>
+        
+        <tag>selenium</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/numpy-notes.html</loc>
+    <lastmod>2019-12-01T07:47:21.117Z</lastmod>
+    <data>
+        <display>
+        <title>numpy笔记</title>
+        <pubTime>2019-12-01T06:20:05.000Z</pubTime>
+        
+        <tag>numpy</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/python-crawler-notes.html</loc>
+    <lastmod>2019-12-01T06:32:29.129Z</lastmod>
+    <data>
+        <display>
+        <title>python爬虫学习笔记</title>
+        <pubTime>2019-11-29T09:40:06.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>爬虫</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/flask-notes.html</loc>
+    <lastmod>2019-11-29T07:40:58.373Z</lastmod>
+    <data>
+        <display>
+        <title>Flask学习笔记</title>
+        <pubTime>2019-11-29T06:12:30.000Z</pubTime>
+        
+        <tag>flask</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://niro8.github.io/zhuan-fang-lang-with-transgene.html</loc>
+    <lastmod>2018-12-29T07:23:07.983Z</lastmod>
+    <data>
+        <display>
+        <title>转：全面驳斥郎咸平、石述思散布的转基因谣言与谎言</title>
+        <pubTime>2018-12-29T06:17:00.000Z</pubTime>
+        
+        <tag>转基因</tag>
+         
+        <tag>方舟子</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/vps-in-vultr.html</loc>
+    <lastmod>2018-12-12T10:58:05.600Z</lastmod>
+    <data>
+        <display>
+        <title>在vultr上搭建ss</title>
+        <pubTime>2018-12-11T09:34:08.000Z</pubTime>
+        
+        <tag>vultr</tag>
+         
+        <tag>shadowsocks</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html</loc>
+    <lastmod>2018-12-12T05:38:06.183Z</lastmod>
+    <data>
+        <display>
+        <title>展望教育上的人工智能：自适应学习</title>
+        <pubTime>2018-04-16T03:49:48.000Z</pubTime>
+        
+        <tag>自适应</tag>
+         
+        <tag>试题推荐</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/Logistic-Regression-model-of-students-pass-rate.html</loc>
+    <lastmod>2018-12-12T05:36:28.692Z</lastmod>
+    <data>
+        <display>
+        <title>学员通过率的逻辑回归（Logistic Regression）模型</title>
+        <pubTime>2018-06-13T11:12:03.000Z</pubTime>
+        
+        <tag>Logistic</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/excel-custom-function-to-achieve-one-to-many-lookup.html</loc>
+    <lastmod>2018-12-12T05:33:29.993Z</lastmod>
+    <data>
+        <display>
+        <title>Excel自定义函数实现一对多查找</title>
+        <pubTime>2018-07-17T07:03:43.000Z</pubTime>
+        
+        <tag>Excel</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/selenium-with-chrome-headless-on-python.html</loc>
+    <lastmod>2018-11-06T09:07:41.446Z</lastmod>
+    <data>
+        <display>
+        <title>selenium的无界面模式</title>
+        <pubTime>2018-11-06T08:47:45.000Z</pubTime>
+        
+        <tag>selenium</tag>
+         
+        <tag>headless</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/weibo-crawler-for-keyword-search-under-simulated-login.html</loc>
+    <lastmod>2018-08-10T10:38:32.339Z</lastmod>
+    <data>
+        <display>
+        <title>基于关键词搜索的微博爬虫</title>
+        <pubTime>2018-08-10T08:00:26.000Z</pubTime>
+        
+        <tag>selenium</tag>
+         
+        <tag>微博爬虫</tag>
+         
+        <tag>模拟登录</tag>
+         
+        <tag>关键词搜索</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/how-to-get-steamcard-using-ASF-in-cloud-server.html</loc>
+    <lastmod>2018-07-16T10:03:27.416Z</lastmod>
+    <data>
+        <display>
+        <title>利用Vultr进行云挂卡</title>
+        <pubTime>2018-07-16T08:54:02.000Z</pubTime>
+        
+        <tag>Vultr</tag>
+         
+        <tag>Steam</tag>
+         
+        <tag>云挂卡</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/datetime-process-in-pandas.html</loc>
+    <lastmod>2018-04-26T07:56:50.755Z</lastmod>
+    <data>
+        <display>
+        <title>pandas中的时间处理</title>
+        <pubTime>2018-04-26T06:56:08.000Z</pubTime>
+        
+        <tag>pandas</tag>
+         
+        <tag>datetime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/python-data-analysis-study-notes_1.html</loc>
+    <lastmod>2018-04-23T10:01:16.227Z</lastmod>
+    <data>
+        <display>
+        <title>python数据分析学习笔记（一）</title>
+        <pubTime>2018-04-21T08:13:24.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>数据分析</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/LaTex-in-Next.html</loc>
+    <lastmod>2018-04-23T04:26:31.680Z</lastmod>
+    <data>
+        <display>
+        <title>NexT实现LaTex公式</title>
+        <pubTime>2018-04-08T01:44:26.000Z</pubTime>
+        
+        <tag>NexT</tag>
+         
+        <tag>LaTex</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/matplotlib-picture-output-notes.html</loc>
+    <lastmod>2018-04-23T04:26:13.810Z</lastmod>
+    <data>
+        <display>
+        <title>matplotlib图片输出简记</title>
+        <pubTime>2018-04-19T10:23:21.000Z</pubTime>
+        
+        <tag>matplotlib</tag>
+         
+        <tag>Inkscape</tag>
+         
+        <tag>subprocess</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://niro8.github.io/my-first-blog.html</loc>
+    <lastmod>2018-04-23T04:26:06.137Z</lastmod>
+    <data>
+        <display>
+        <title>第一篇博客</title>
+        <pubTime>2018-03-22T08:07:32.000Z</pubTime>
+        
+        <tag>随笔</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+</urlset>

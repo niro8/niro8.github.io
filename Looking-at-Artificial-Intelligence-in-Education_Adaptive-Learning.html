@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="OaOptqIG3ZJOdDOGsT490ldkY_TIkqVEiLfTi7O4Lhc" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="自适应,试题推荐," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="引言人工智能是最近几年比较热门的话题，特别在AlphaGo战胜了几位世界级围棋选手，人工智能在有限规则游戏中的表现超过了大家的预料，人们对其关注大大增加。如果说人工智能在汽车领域上的应用是自动驾驶，那么在教育行业的应用就是自适应学习了。">
+<meta name="keywords" content="自适应,试题推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="展望教育上的人工智能：自适应学习">
+<meta property="og:url" content="https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html">
+<meta property="og:site_name" content="Shuyue">
+<meta property="og:description" content="引言人工智能是最近几年比较热门的话题，特别在AlphaGo战胜了几位世界级围棋选手，人工智能在有限规则游戏中的表现超过了大家的预料，人们对其关注大大增加。如果说人工智能在汽车领域上的应用是自动驾驶，那么在教育行业的应用就是自适应学习了。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://niro8.github.io/images/IRT.svg">
+<meta property="og:updated_time" content="2018-12-12T05:38:06.183Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="展望教育上的人工智能：自适应学习">
+<meta name="twitter:description" content="引言人工智能是最近几年比较热门的话题，特别在AlphaGo战胜了几位世界级围棋选手，人工智能在有限规则游戏中的表现超过了大家的预料，人们对其关注大大增加。如果说人工智能在汽车领域上的应用是自动驾驶，那么在教育行业的应用就是自适应学习了。">
+<meta name="twitter:image" content="https://niro8.github.io/images/IRT.svg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html"/>
+
+
+
+
+
+  <title>展望教育上的人工智能：自适应学习 | Shuyue</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shuyue</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">「书剑」</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shuyue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/taiji.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shuyue">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">展望教育上的人工智能：自适应学习</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T11:49:48+08:00">
+                2018-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,856
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>人工智能是最近几年比较热门的话题，特别在AlphaGo战胜了几位世界级围棋选手，人工智能在有限规则游戏中的表现超过了大家的预料，人们对其关注大大增加。如果说人工智能在汽车领域上的应用是自动驾驶，那么在教育行业的应用就是自适应学习了。<br><a id="more"></a><br>自适应学习，通俗的说，就是“因材施教”，所以这个系统的最终目的就是成为一个能够根据学生个性、能力、环境等各种因素进行教育的“虚拟老师”。当然，现有的自适应学习系统还远远达不到这个要求。<br>目前，在这个行业比较出名的有：</p>
+<ul>
+<li>自适应学习行业的开山鼻祖——08年成立的美国Knewton公司，完成了F轮融资，总额约2亿美金，在13年实现盈利</li>
+<li>国内呼声比较高的乂学教育，目前知道的是获得了1.2亿(RMB)融资</li>
+<li>其他还有新东方在线、优答、爱学堂、学吧课堂等</li>
+</ul>
+<p>这个行业现在刚刚起步没多久，行业内鱼龙混杂，很多宣称自己应用自适应学习系统，实现了个性化教育，实际上都十分有限。同时，受到技术和理论上的限制，自适应学习并不完善，还有很长一段路要走。学习报告和试题推荐是自适应学习的一部分，我主要介绍现在主流的模型和算法，并谈谈我对搭建试题推荐系统的看法。</p>
+<h2 id="认知诊断模型"><a href="#认知诊断模型" class="headerlink" title="认知诊断模型"></a>认知诊断模型</h2><p>首先面临的第一个问题就是，如何根据测试结果去评价学生的知识点掌握程度。在认知心理学中，认知诊断模型可以较好地从知识点层面对学生的认知状态进行建模，并在学生矫正计划、学习退学预警等应用中取得了良好的效果<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Leighton J P,Gierl M J. Cognitive Diagnostic Assessment for Education: Theory and Applications. New York, USA: Cambridge University Press, 2007
+">[1]</span></a></sup>。常见的认知诊断模型有项目反应理论(Item Response Theory, IRT)和DINA模型(Deterministic Inputs, Noisy “And” gate model)。</p>
+<h3 id="IRT"><a href="#IRT" class="headerlink" title="IRT"></a>IRT</h3><p>$$P(\theta) =c+\frac{1-c}{1+e^{-Da(\theta-b)}}$$<br>这是一个三参数的IRT模型，$D$ 是常数。根据模型所绘制出的曲线也叫做项目特征曲线（Item Characteristic Curve, ICC）。其意义在于描述出“成功解答某一特定考试项目的可能性”和“被测试者能力”（在函数中以 $\theta$ 表示）之间的关系。</p>
+<p>在模型中，共有3个参数：$a$，$b$ 和 $c$。其中参数 $c$ 一般被称为“猜测参数”（guessing parameter）或者“伪猜测参数”（pseudo-guessing parameter）。在图像上，$c$ 所代表的是ICC的下限，其直观意义为：当一个被测试者的能力值非常低（比如接近负无穷），但是他仍然能够有可能做对这道题目的概率 $c$ 就是他猜测的能力，例如4选项的单选题，$c$ 为0.25。</p>
+<p>$b$ 叫做项目难度参数，也称为项目难度（item difficulty）。$b$ 一般表示在ICC图像最陡的那一点所对应的 $\theta$ 值。改变 $b$ 会导致ICC的左右移动，但是不改变其形状。当 $b$ 值增加，会使ICC曲线向右移动（$\theta$ 值高的的方向），这会引起在即使 $\theta$ 保持不变，但是答题正确率下降，亦即题目难度增加。反之当 $b$ 值减小，ICC曲线向左移动，题目难度降低。</p>
+<p>$a$ 叫做区分度参数或项目区分度（item discrimination）。在数学上，$a(1-c)/4$ 的值是ICC曲线拐点处的斜率，即斜率的最大值。在这一点上，能力值微小的改变会造成最大的 $P$ 值（回答正确率）变动。所以 $a$ 体现的是该项目的最大区分度。 当 $a$ 比较大时，要么会做，要么肯定不会做，不存在中间地带<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="https://en.wikipedia.org/wiki/Item_response_theory
+">[2]</span></a></sup>。</p>
+<p><img src="/images/IRT.svg" alt="image" title="ICC"></p>
+<p>以IRT为基础，发展不少模型。比如，线性逻辑斯谛克特质模(1inear logistic trait model, LLTM)、多成分潜在特质模型(muhieomponent latent trait model, MLTM)及拓广多成分潜在特质模型(general muhicomponent latent trait model, GLTM)。以及随着后来在线学习的兴起的知识追踪（Knowledge Tracing）。  知识追踪(Knowledge Tracing)希望通过对学习者过往练习的结果分析其当前对一些概念的掌握程度。知识追踪任务可以形式化为一个有监督的序列学习问题：即给定学习者过去的练习记录 $X={x_{1},x_{2},\cdots,x_{t-1}}$，预测学习者对一个新的练习回答正确的概率，即$p(r_{t} =1|q_{t},\,X)$。典型的知识追踪方法有：Bayesian Knowledge Tracing(BKT) 和 Deep Knowledge Tracing(DKT)。</p>
+<p>这些最初始的模型都没有考虑题目对应多个知识点的问题，实际考试中，往往一个试题对应多个知识点。后续很多再次开发的模型都融入了 $Q$ 矩阵。</p>
+<h3 id="Q-矩阵"><a href="#Q-矩阵" class="headerlink" title="$Q$ 矩阵"></a>$Q$ 矩阵</h3><table>
+<thead>
+<tr>
+<th>Questions</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Concept1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Concept2</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>$Q$ 矩阵主要就是为了解决一个试题对应多个知识点的问题，它是一个题目与知识点的对应矩阵。上表是一个知识点与试题的简单对应关系，其中的值可以是离散的0和1，也可以是0~1之间的概率。搭建 $Q$ 矩阵是一个非常庞大的工程量，同时也是非常重要的一环，它关系到所用的模型效果。如果 $Q$ 矩阵没有没有准确搭建，后续预测和估计准确度会受很大影响。</p>
+<h3 id="DINA"><a href="#DINA" class="headerlink" title="DINA"></a>DINA</h3><p>DINA属于潜在分类模型，这类模型的目的在于按照被试的得分模式找到被试在潜在特质上质的差异，<br>根据这样的差异对被试进行分类，属于这类模型的还有：Tatsuoka等提出的规则空间模型(rule space model, RSM)、新发展起来的融合模型(fusion model, FM)、NIDA模型(noisy inputs; deterministic “and” gate model)及贝叶斯网络(bayesian network, BN)等。DINA能够比较好应用 $Q$ 矩阵进行模型搭建和预测。</p>
+<p>$$<br>P(X_{ij}\;|\;\xi_{ij})=(1-s_{j})^{\xi_{ij}}g_{j}^{1-\xi_{ij}},\;\text{其中}\;\xi_{ij}=\prod^{K}_{k=1}\alpha^{q_{jk}}_{ik}<br>$$</p>
+<p>表达式中，$P(X_{ij}\;|\;\xi_{ij})$ 表示被试者 $i$ 答对项目 $j$ 的概率； $\xi_{ij}$ 为被试者 $i$ 对作答项目 $j$ 所需知识的掌握程度，$\alpha_{ik}$ 是被试者 $i$ 掌握知识点的情况，$q_{jk}$ 是项目 $j$ 要求掌握的知识点情况，如果被试者 $i$ 掌握了答对项目 $j$ 所需要的所有知识，则 $\xi_{ij}=1$，反之，$\xi_{ij}=1$；$s_{j}$ 为失误参数，表示被试者掌握了答对项目 $j$ 所要求的属性模式，却错答了项目 $j$ 的概率； $g_{j}$ 为猜测参数，表示被试者未掌握答对项目 $j$ 所要求的属性模式，却答对了项目 $j$ 的概率。由此可见，该模型把学生分成两类：一类掌握了正确作答该项目所需的全部属性，另一类至少有一个必需的属性未掌握。因此，DINA模型是一个连续、非补偿模型，其核心思想在于其假定考生在解题时，如果缺少解答这一题所必需的任一个属性，该题的答对概率就低，即使答对了该项目也只是由于猜测<sup id="fnref:3"><a href="#fn:3" rel="footnote"><span class="hint--top-right hint--error hint--large" aria-label="Templin J, Henson R. Measurement of psychological disorders using cognitive diagnosis models[J]. Psychological Methods, 2006, (3)．
+">[3]</span></a></sup>。比如，$5\times6+10$ 要求学生掌握乘法和加法，无论缺少哪一种，学生答对的概率都很低。DINA模型仅涉及“失误”和“猜测”两参数，实现了对认知诊断模型的简化，参数易于识别。后续模型发展对其多有借鉴。</p>
+<h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><p>除了上述问题外，还要考虑一个更加深层的问题——知识点间的相互关联。根据知识点间的关系，构建知识图谱，这也是一个非常庞大的工程。</p>
+<p>不同于章节数的包含结构，知识点间的关系远比章节数复杂的多。有的知识点是对过去知识点的丰富，有的知识点却要将之前建立的知识结构推翻重来，建立新的结构。这产生了很多问题。学习了新的知识点，有可能加强了之前的知识点，也有可能没有强化，反而使学生更加困惑，比如容易混淆的知识点。例如，英语中各种词语和语法的用法，初学者很容易糊涂。</p>
+<p>同时构建这样一个知识图谱，也可以给后续学生的推荐更加有针对性。根据学生当前的表现情况，生成个人学习报告，联系知识图谱，为其规划下一步的学习路径，实现“因材施教”。</p>
+<p>知识图谱也能有效的减少学生试题测试数。要对学生进行个人学习报告分析，首先要了解学生对知识点的掌握情况。以一门学科500个知识点来算，一个知识点1道题，我们至少需要500道题来检测学生，假设答每道题需要5秒钟，答完所有题目也需要41.67分钟，估计没有几个学生能做完所有题目。这显然不是很合理。而联系知识图谱，在每答一道题后，根据已答题目的知识点，推荐下一知识点，寻找覆盖主要知识点的最优路径。例如，数学四则运算，先测乘法，错了就测试加法，对了就测试除法。当然，我们在建模的时候可能不会如此的简单，通过与知识图谱的联系，在答题量和准确度之间进行权衡，最终目的就是想答最少的题目得到最精准的测量。</p>
+<h3 id="时间趋势"><a href="#时间趋势" class="headerlink" title="时间趋势"></a>时间趋势</h3><p>时间也是要考虑的另一因素，前面所提到了BKT和DKT就有涉及到时间，前后知识点的关联也与时间有关。学生的学习行为是时间线上的行为。学生过去学习的知识点，可能会随着时间渐渐遗忘，也可能在这一段时间内不断学习巩固，加强了对其的理解。比如，一学生已经做了100道题，答对50道，能够直接判断学生的能力就为0.5吗？显然不合适。他可能以前错的比较多，50道题对了10道，后面错的比较少，50道题对了40道。这需要建立一个时间窗口，给予近期时间内事件更高的权重，比较久远时间的事件更少权重，模拟学生的“遗忘”行为。</p>
+<p>在模拟遗忘的同时，要利用遗忘的规律，找到学生最佳的复习时间，在这个时间内，给学生推荐相关试题和知识点。SuperMemo是比较有名复习算法，早期是开源的，近十年的算法已经不公开了。现在市面不少的英语单词学习软件都加入这样的复习算法。</p>
+<h2 id="建议与展望"><a href="#建议与展望" class="headerlink" title="建议与展望"></a>建议与展望</h2><p>建立试题推荐系统虽然比自适应系统要小一些，但仍然不是一个简单的工程，它取决于对系统精度的要求。要求越是精细，系统越是复杂。它也不仅仅是搭建一个数据模型，需要考虑方方面面。</p>
+<ul>
+<li>数据采集：越是复杂精细，越是要求采集更加精细和多维的数据。</li>
+<li>模型搭建：模型要尽可能容纳更多更精细的信息，很好的稳定性，庞大的计算量保证能够大量数据的访问和冲击，最重要的是能够对学生有很好的预测能力</li>
+<li>知识点：知识点细分粒度，精细的模型，会要求知识点细分粒度达到纳米级；知识图谱的搭建，越是详细的图谱，越会适应精细的系统。</li>
+<li>$Q$ 矩阵：$Q$ 矩阵搭建的准确度能够很大程度上影响模型准确度。</li>
+</ul>
+<p>考虑的东西越多，搭建系统时花费的时间和资本就越多，但是提升的程度不一定和投入资本同比增加。所以需要在资金和时间的投入与模型最终效果间进行衡量，找到最优的平衡点。同时也要考虑到实际业务上的需要，如果业务上不需要对模型提出高精度的要求，那就只用搭建一个简单模型就可以了。如果花了大力气去研发了一套系统，而不能给实际业务创造收益，那即使这套模型有很好的精度和效果，也是白费力气，没有真正产生价值。模型的实际用途决定了投入资本的上限。不同模型各有特色和适应场景，现有的条件（时间、资金、数据等等）也会对模型选择有一定影响。</p>
+<p>最后在展望一下自适应系统的未来。引言提到，自适应系统最终目的就是要成为“虚拟老师”。这需要在对目前的知识点进一步细分，知识图谱进行完善，但最终会反馈为对人工智能的进一步要求——人工智能理解自然语言。自然语言和机器语言有很大差异，自然语言语义丰富，不同场景下，同一句话就可能意思不同，这很难被机器所理解。目前有很多不同的研究方向，我就说一下知识图谱的研究方向吧。很多人都学习过英语，或者其他语言，学习越是深入就会发现，你不仅仅是在学习语言，更是在学习他们的文化、历史、习俗等等，你需要对他们日常知识有所了解。这也是为什么学习一门语言最好的方式就是去当地生活，因为这样的场景下，你会快速的融入进去。所以，要想理解一门语言，你不仅仅需要知道每个字词的意思，更要有对通识的了解。所以，让机器理解也是如此，构建一个通用型知识图谱对机器理解自然语言十分关键。要想构建这样一个知识图谱实在不是件容易的事，因为这种通识不仅非常庞大，还在不断变化。在通用型知识图谱上，要想机器去理解其他专门领域的语言，就要构建领域型知识图谱。越是繁复细腻的图谱，越是能够让机器更好的理解自然语言。</p>
+<p>通用型知识图谱至今未建立，所以在此基础上建立领域型知识图谱，形成“虚拟老师”，还有很长一段路要走。</p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Leighton J P,Gierl M J. Cognitive Diagnostic Assessment for Education: Theory and Applications. New York, USA: Cambridge University Press, 2007<a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;"><a href="https://en.wikipedia.org/wiki/Item_response_theory" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Item_response_theory</a><a href="#fnref:2" rev="footnote"> ↩</a></span></li><li id="fn:3"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">3.</span><span style="display: inline-block; vertical-align: top; margin-left: 10px;">Templin J, Henson R. Measurement of psychological disorders using cognitive diagnosis models[J]. Psychological Methods, 2006, (3)．<a href="#fnref:3" rev="footnote"> ↩</a></span></li></ol></div></div>
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shuyue
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html" title="展望教育上的人工智能：自适应学习">https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/自适应/" rel="tag"><i class="fa fa-tag"></i> 自适应</a>
+          
+            <a href="/tags/试题推荐/" rel="tag"><i class="fa fa-tag"></i> 试题推荐</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/LaTex-in-Next.html" rel="next" title="NexT实现LaTex公式">
+                <i class="fa fa-chevron-left"></i> NexT实现LaTex公式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/matplotlib-picture-output-notes.html" rel="prev" title="matplotlib图片输出简记">
+                matplotlib图片输出简记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/taiji.jpg"
+                alt="shuyue" />
+            
+              <p class="site-author-name" itemprop="name">shuyue</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/niro8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shuyuecaesar@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#认知诊断模型"><span class="nav-number">2.</span> <span class="nav-text">认知诊断模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#IRT"><span class="nav-number">2.1.</span> <span class="nav-text">IRT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q-矩阵"><span class="nav-number">2.2.</span> <span class="nav-text">$Q$ 矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DINA"><span class="nav-number">2.3.</span> <span class="nav-text">DINA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#知识图谱"><span class="nav-number">2.4.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间趋势"><span class="nav-number">2.5.</span> <span class="nav-text">时间趋势</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议与展望"><span class="nav-number">3.</span> <span class="nav-text">建议与展望</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shuyue</span>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by">
+  </div>
+  <span>Hosted by <a href="https://pages.github.com" style="font-weight: bold" rel="external nofollow">Github Pages</a></span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span class="post-meta-divider">|</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i><span id="busuanzi_container_site_pv">
+    本站访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shuyue.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://niro8.github.io/Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html';
+          this.page.identifier = 'Looking-at-Artificial-Intelligence-in-Education_Adaptive-Learning.html';
+          this.page.title = '展望教育上的人工智能：自适应学习';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shuyue.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

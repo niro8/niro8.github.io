@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="OaOptqIG3ZJOdDOGsT490ldkY_TIkqVEiLfTi7O4Lhc" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vultr,shadowsocks," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在国内上谷歌或者访问外网不太方便，看网上有很多人买了vps，搭建了自己的ss，博主也尝试了一下。整个过程并不复杂，网上教程也很多，我整理了一下。">
+<meta name="keywords" content="vultr,shadowsocks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在vultr上搭建ss">
+<meta property="og:url" content="https://niro8.github.io/vps-in-vultr.html">
+<meta property="og:site_name" content="Shuyue">
+<meta property="og:description" content="在国内上谷歌或者访问外网不太方便，看网上有很多人买了vps，搭建了自己的ss，博主也尝试了一下。整个过程并不复杂，网上教程也很多，我整理了一下。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-12T10:58:05.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在vultr上搭建ss">
+<meta name="twitter:description" content="在国内上谷歌或者访问外网不太方便，看网上有很多人买了vps，搭建了自己的ss，博主也尝试了一下。整个过程并不复杂，网上教程也很多，我整理了一下。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://niro8.github.io/vps-in-vultr.html"/>
+
+
+
+
+
+  <title>在vultr上搭建ss | Shuyue</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Shuyue</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">「书剑」</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://niro8.github.io/vps-in-vultr.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shuyue">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/taiji.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shuyue">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在vultr上搭建ss</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-11T17:34:08+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/vps-in-vultr.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="vps-in-vultr.html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,479
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>在国内上谷歌或者访问外网不太方便，看网上有很多人买了vps，搭建了自己的ss，博主也尝试了一下。整个过程并不复杂，网上教程也很多，我整理了一下。<br><a id="more"></a></p>
+<h2 id="选择vps服务商"><a href="#选择vps服务商" class="headerlink" title="选择vps服务商"></a>选择vps服务商</h2><p>网上的<code>vps</code>很多，博主选择了<code>vultr</code>。如果你使用的是其他服务商，也没关系，大体上没多少差异。<br>下面是博主的推荐链接，现在12月有活动，新用户赠送25美元。</p>
+<p><strong>优惠链接</strong>：<a href="https://www.vultr.com/?ref=7692960" target="_blank" rel="noopener">https://www.vultr.com/?ref=7692960</a></p>
+<h3 id="注册与登录"><a href="#注册与登录" class="headerlink" title="注册与登录"></a>注册与登录</h3><p>没有注册的小伙伴可以通过上面的优惠链接进行注册，也可以自己访问官网注册，不过没有优惠。目前优惠期只限12月份，过了优惠期，通过上面的链接也不能有优惠了。</p>
+<p>注册完成，通过邮箱验证，登录就好。</p>
+<h3 id="充值"><a href="#充值" class="headerlink" title="充值"></a>充值</h3><p>进去后再左侧选择<code>Billing</code>，选择付款方式，支持信用卡（国外的）、Paypal、比特币、支付宝、微信支付、礼物码六种方式，选择自己合适的金额就行。</p>
+<h3 id="vultr计费方式"><a href="#vultr计费方式" class="headerlink" title="vultr计费方式"></a>vultr计费方式</h3><p>vultr是按小时收费的，不同的服务器配置小时收费不同。</p>
+<p>但是注意，如果你不想用了，将服务器停止了，vultr<strong>仍然收费</strong>。所以，如果你真的不想用了，就把服务器<code>Destroy</code>。</p>
+<h2 id="搭建ss"><a href="#搭建ss" class="headerlink" title="搭建ss"></a>搭建ss</h2><h3 id="选择线路"><a href="#选择线路" class="headerlink" title="选择线路"></a>选择线路</h3><table><tbody><tr><th>Location<br>地理位置</th><th>Hostname<br>官方测试服务器ip</th><th>Download Test File<br>下载测试文件</th></tr><tr style="line-height: 16px;"><td>(Asia)Tokyo, Japan[日本 东京]</td><td>hnd-jp-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://hnd-jp-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://hnd-jp-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Singapore[新加坡]</td><td>sgp-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://sgp-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://sgp-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>(AU) Sydney, Australia[悉尼]</td><td>syd-au-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://syd-au-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://syd-au-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>(EU) Frankfurt, DE[德国 法兰克福]</td><td>fra-de-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://fra-de-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://fra-de-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>(EU) Amsterdam, NL[荷兰 阿姆斯特丹]</td><td>ams-nl-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://ams-nl-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://ams-nl-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>(EU) London, UK[英国 伦敦]</td><td>lon-gb-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://lon-gb-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://lon-gb-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>(EU) Paris, France[法国 巴黎]</td><td>par-fr-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://par-fr-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://par-fr-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Seattle, Washington[美东 华盛顿州 西雅图]</td><td>wa-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://wa-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://wa-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Silicon Valley, Ca[美西 加州 硅谷]</td><td>sjo-ca-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://sjo-ca-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://sjo-ca-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Los Angeles, Ca[美西 加州 洛杉矶<strong>(推荐)</strong>]</td><td>lax-ca-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://lax-ca-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://lax-ca-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Chicago, Illinois[美东 芝加哥]</td><td>il-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://il-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://il-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Dallas, Texas[美中 德克萨斯州 达拉斯]</td><td>tx-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://tx-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://tx-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>New York / New Jersey[美东 新泽西]</td><td>nj-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://nj-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://nj-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Atlanta, Georgiaa[美东 乔治亚州 亚特兰大]</td><td>ga-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://ga-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://ga-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr><tr style="line-height: 16px;"><td>Miami, Florida[美东 佛罗里达州 迈阿密]</td><td>fl-us-ping.vultr.com</td><td><a class="btn-primary btn_small" href="http://fl-us-ping.vultr.com/vultr.com.100MB.bin" target="_blank" rel="noopener">100Mb</a> <a class="btn-primary btn_small" href="http://fl-us-ping.vultr.com/vultr.com.1000MB.bin" target="_blank" rel="noopener">1000Mb</a></td></tr></tbody></table>
+
+<p>在命令行内<code>ping</code>相应的的ip，根据自己的网络情况，选择合适的线路。</p>
+<h3 id="选择配置"><a href="#选择配置" class="headerlink" title="选择配置"></a>选择配置</h3><p>在左侧选择<code>servers</code>，点击右侧的加号，根据<code>ping</code>的结果，选择合适的服务期，系统选择64位的<code>CentOS 7</code>，服务器的大小跟进自己需求选择，但是现在不要轻易选2.5美元一个月的，这种配置有ipv6的线路，比较麻烦，选择3.5或者5美元一个月一般都能满足了。最后创建后就行，创建服务器需要一段时间，等待服务器变成<code>running</code>状态就行。</p>
+<h3 id="远程连接主机"><a href="#远程连接主机" class="headerlink" title="远程连接主机"></a>远程连接主机</h3><p>远程连接的软件有不少，博主使用<code>putty</code>和<code>xshell</code>。连接上远程主机后，依次输入以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
+<p>耐心等待出现输入密码的界面，输入密码，这个密码不是主机密码，是后面连接ss的密码，可以通过配置文件进行更改。</p>
+<p>端口默认即可，加密方式选择<code>aes-256-cfb</code>。最后出现<code>Congratulations</code>即为成功，记录下Server IP、Server Port、Password</p>
+<h3 id="ip被封"><a href="#ip被封" class="headerlink" title="ip被封"></a>ip被封</h3><ul>
+<li><strong>情况一</strong>：ip可以ping通，但是远程ssh连不上，这种情况有可能就是ip被封了。</li>
+<li><strong>情况二</strong>：之前都可以正常使用，今天突然就不连不上了，重启服务器也没有用，也可能是ip被封了。</li>
+</ul>
+<p>上面两种情况都不能具体判断ip是否被封，ip被封的情况应该是国内不可以访问，而国外可以访问。</p>
+<ul>
+<li>国内端口检测：<a href="http://tool.chinaz.com/port" target="_blank" rel="noopener">http://tool.chinaz.com/port</a></li>
+<li>国外端口检测：<a href="https://www.yougetsignal.com/tools/open-ports/" target="_blank" rel="noopener">https://www.yougetsignal.com/tools/open-ports/</a></li>
+</ul>
+<p>如果国内端口检测<strong>关闭</strong>，国外端口检测<strong>open</strong>，那么ip就是被封了，只能换一个ip了。</p>
+<p>删掉原来的服务器，重建服务器。如果发现ip和以前一样，就先保留当前服务器，再建一个服务器，获取不同的ip后，在删除原来的服务器。或者，你就等几天，再次重建服务器，ip也会不一样。</p>
+<h3 id="多账号配置"><a href="#多账号配置" class="headerlink" title="多账号配置"></a>多账号配置</h3><p>多账号需要配置两个文件，一个是shadowsocks配置文件，一个是防火墙文件，可以用xftp这一类的软件，上传覆盖文件，或者在vim模式下编辑文件。</p>
+<h4 id="shadowsocks配置文件"><a href="#shadowsocks配置文件" class="headerlink" title="shadowsocks配置文件"></a>shadowsocks配置文件</h4><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// filepath: /etc/shadowsocks.json</span><br><span class="line">// [port]: 选择[1,65535]任一数字</span><br><span class="line">// example:</span><br><span class="line">// "port_password":&#123;</span><br><span class="line">//     "8989": "123456",</span><br><span class="line">//     "9001": "123456"</span><br><span class="line">// &#125;,</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"0.0.0.0"</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>:<span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"port_password"</span>:&#123;</span><br><span class="line">        <span class="attr">"[port]"</span>: <span class="string">"[password]"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>:<span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="防火墙文件"><a href="#防火墙文件" class="headerlink" title="防火墙文件"></a>防火墙文件</h4><p>文件路径在<code>/etc/firewalld/zones/public.xml</code>，按照原来的方式，把端口号添加进去。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">zone</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">short</span>&gt;</span>Public<span class="tag">&lt;/<span class="name">short</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">description</span>&gt;</span>For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accepted.<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">service</span> <span class="attr">name</span>=<span class="string">"dhcpv6-client"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">service</span> <span class="attr">name</span>=<span class="string">"ssh"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"tcp"</span> <span class="attr">port</span>=<span class="string">"8989"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">port</span> <span class="attr">protocol</span>=<span class="string">"udp"</span> <span class="attr">port</span>=<span class="string">"8989"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">zone</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="启用配置"><a href="#启用配置" class="headerlink" title="启用配置"></a>启用配置</h4><p>配置好文件后，需要在shell中启用配置，依次输出下面两条语句</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/shadowsocks restart</span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<h4 id="安装魔改版bbr"><a href="#安装魔改版bbr" class="headerlink" title="安装魔改版bbr"></a>安装魔改版bbr</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh"</span><br><span class="line">chmod +x tcp.sh</span><br><span class="line">./tcp.sh</span><br></pre></td></tr></table></figure>
+<p>运行上面的语句，重启服务器，后再次运行<code>./tcp.sh</code>，选择自己想要的版本即可</p>
+<h2 id="软件共享"><a href="#软件共享" class="headerlink" title="软件共享"></a>软件共享</h2><p>最后共享一下我自己用的软件</p>
+<p><a href="https://pan.baidu.com/s/11uihfaQhN5hRXRYDVmmqig" target="_blank" rel="noopener">百度云链接</a> 提取码：bn6b</p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    shuyue
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://niro8.github.io/vps-in-vultr.html" title="在vultr上搭建ss">https://niro8.github.io/vps-in-vultr.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vultr/" rel="tag"><i class="fa fa-tag"></i> vultr</a>
+          
+            <a href="/tags/shadowsocks/" rel="tag"><i class="fa fa-tag"></i> shadowsocks</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/selenium-with-chrome-headless-on-python.html" rel="next" title="selenium的无界面模式">
+                <i class="fa fa-chevron-left"></i> selenium的无界面模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/zhuan-fang-lang-with-transgene.html" rel="prev" title="转：全面驳斥郎咸平、石述思散布的转基因谣言与谎言">
+                转：全面驳斥郎咸平、石述思散布的转基因谣言与谎言 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/taiji.jpg"
+                alt="shuyue" />
+            
+              <p class="site-author-name" itemprop="name">shuyue</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/niro8" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shuyuecaesar@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#选择vps服务商"><span class="nav-number">1.</span> <span class="nav-text">选择vps服务商</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册与登录"><span class="nav-number">1.1.</span> <span class="nav-text">注册与登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#充值"><span class="nav-number">1.2.</span> <span class="nav-text">充值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vultr计费方式"><span class="nav-number">1.3.</span> <span class="nav-text">vultr计费方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建ss"><span class="nav-number">2.</span> <span class="nav-text">搭建ss</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#选择线路"><span class="nav-number">2.1.</span> <span class="nav-text">选择线路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择配置"><span class="nav-number">2.2.</span> <span class="nav-text">选择配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程连接主机"><span class="nav-number">2.3.</span> <span class="nav-text">远程连接主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip被封"><span class="nav-number">2.4.</span> <span class="nav-text">ip被封</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多账号配置"><span class="nav-number">2.5.</span> <span class="nav-text">多账号配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#shadowsocks配置文件"><span class="nav-number">2.5.1.</span> <span class="nav-text">shadowsocks配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防火墙文件"><span class="nav-number">2.5.2.</span> <span class="nav-text">防火墙文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#启用配置"><span class="nav-number">2.5.3.</span> <span class="nav-text">启用配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装魔改版bbr"><span class="nav-number">2.5.4.</span> <span class="nav-text">安装魔改版bbr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件共享"><span class="nav-number">3.</span> <span class="nav-text">软件共享</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shuyue</span>
+  <span class="post-meta-divider">|</span>
+  <div class="powered-by">
+  </div>
+  <span>Hosted by <a href="https://pages.github.com" style="font-weight: bold" rel="external nofollow">Github Pages</a></span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数：<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<span class="post-meta-divider">|</span>
+<div class="powered-by">
+<i class="fa fa-eye"></i><span id="busuanzi_container_site_pv">
+    本站访问量：<span id="busuanzi_value_site_pv"></span>
+</span>
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://shuyue.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://niro8.github.io/vps-in-vultr.html';
+          this.page.identifier = 'vps-in-vultr.html';
+          this.page.title = '在vultr上搭建ss';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://shuyue.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
