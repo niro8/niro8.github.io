@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="matplotlib," />
+  <meta name="keywords" content="tensorflow," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="matplotlib的一些使用整理笔记，详细使用参见官网。">
-<meta name="keywords" content="matplotlib">
+<meta name="description" content="tensorflow 2的个人安装过程，以及解决出现的一些问题。">
+<meta name="keywords" content="tensorflow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="matplotlib笔记">
-<meta property="og:url" content="https://niro8.github.io/matplotlib-notes.html">
+<meta property="og:title" content="tensorflow 2 安装以及 ImportError: DLL load failed解决">
+<meta property="og:url" content="https://niro8.github.io/install-tensorflow2.html">
 <meta property="og:site_name" content="Shuyue">
-<meta property="og:description" content="matplotlib的一些使用整理笔记，详细使用参见官网。">
+<meta property="og:description" content="tensorflow 2的个人安装过程，以及解决出现的一些问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-04T14:11:29.591Z">
+<meta property="og:updated_time" content="2020-03-22T13:38:00.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="matplotlib笔记">
-<meta name="twitter:description" content="matplotlib的一些使用整理笔记，详细使用参见官网。">
+<meta name="twitter:title" content="tensorflow 2 安装以及 ImportError: DLL load failed解决">
+<meta name="twitter:description" content="tensorflow 2的个人安装过程，以及解决出现的一些问题。">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://niro8.github.io/matplotlib-notes.html"/>
+  <link rel="canonical" href="https://niro8.github.io/install-tensorflow2.html"/>
 
 
 
 
 
-  <title>matplotlib笔记 | Shuyue</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>tensorflow 2 安装以及 ImportError: DLL load failed解决 | Shuyue</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://niro8.github.io/matplotlib-notes.html">
+    <link itemprop="mainEntityOfPage" href="https://niro8.github.io/install-tensorflow2.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shuyue">
@@ -316,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">matplotlib笔记</h1>
+          <h1 class="post-title" itemprop="name headline">tensorflow 2 安装以及 ImportError: DLL load failed解决</h1>
         
 
         <div class="post-meta">
@@ -328,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-03T21:45:19+08:00">
-                2019-12-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-22T19:38:03+08:00">
+                2020-03-22
               </time>
             
 
@@ -347,9 +347,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/matplotlib-notes.html#comments" itemprop="discussionUrl">
+                <a href="/install-tensorflow2.html#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="matplotlib-notes.html" itemprop="commentCount"></span>
+                        data-disqus-identifier="install-tensorflow2.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  546
+                  1,641
                 </span>
               
 
@@ -396,12 +396,54 @@
       
 
       
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>matplotlib的一些使用整理笔记，详细使用参见<a href="https://matplotlib.org/" target="_blank" rel="noopener">官网</a>。<br><a id="more"></a></p>
-<h2 id="交互绘图"><a href="#交互绘图" class="headerlink" title="交互绘图"></a>交互绘图</h2><p>matplotlib有交互模式，可以通过交互模式实现动态绘图。主要通过循环<strong>绘图==&gt;清除上一幅图片==&gt;绘图</strong>，来实现动态图表。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># plt.ion() 打开交互模式</span></span><br><span class="line"><span class="comment"># plt.ioff() 关闭交互模式</span></span><br><span class="line"><span class="comment"># plt.clf() 清除图像(figure)</span></span><br><span class="line"><span class="comment"># plt.cla() 清除Axes</span></span><br><span class="line"><span class="comment"># plt.pause() 交互模式下暂停并展示图表</span></span><br><span class="line"></span><br><span class="line">X, Y = np.random.rand(<span class="number">2</span>, <span class="number">10</span>)</span><br><span class="line">x, y = [], []</span><br><span class="line">plt.ion()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(X)):</span><br><span class="line">    plt.clf() <span class="comment"># 不删除图表一样可以运行，但之前图表会一直占用内存</span></span><br><span class="line">    x.append(X[i])</span><br><span class="line">    y.append(Y[i])</span><br><span class="line">    plt.scatter(x, y)</span><br><span class="line">    plt.pause(<span class="number">0.2</span>)</span><br><span class="line">plt.ioff()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
-<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>matplotlib提供了变更全局变量的方式。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="comment"># 方式一</span></span><br><span class="line">mpl.rcParams[<span class="string">'lines.linewidth'</span>] = <span class="number">2</span></span><br><span class="line">mpl.rcParams[<span class="string">'lines.color'</span>] = <span class="string">'r'</span></span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line">mpl.rc(<span class="string">'lines'</span>, linewidth=<span class="number">2</span>, color=<span class="string">'r'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中文乱码指定字体</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line"><span class="comment"># 正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果不想每次都指定这些内容，可以将这些内容直接写入到默认配置文件matplotlibrc</span></span><br><span class="line">mpl.matplotlib_fname() <span class="comment"># 配置文件路径</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="风格"><a href="#风格" class="headerlink" title="风格"></a>风格</h2><p>matplotlib提供了不少的风格选项，可以自己指定，或者使用默认风格。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出可用风格</span></span><br><span class="line">print(plt.style.availabel)</span><br><span class="line"><span class="comment"># 指定全局风格</span></span><br><span class="line">plt.style.use(<span class="string">'ggplot'</span>)</span><br><span class="line"><span class="comment"># 只想临时使用某种风格，而不改变全局风格</span></span><br><span class="line"><span class="keyword">with</span> plt.style.context(<span class="string">'ggplot'</span>):</span><br><span class="line">    plt.plot(np.sin(np.linspace(<span class="number">0</span>, <span class="number">2</span> * np.pi)), <span class="string">'r-o'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>在图表中加入箭头类型的注释文本，具体使用参见<a href="https://matplotlib.org/tutorials/text/annotations.html#annotations-tutorial" target="_blank" rel="noopener">网址</a><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plt.annotate(text, xy, xytext, arrowprops)</span><br></pre></td></tr></table></figure></p>
-<h2 id="坐标轴"><a href="#坐标轴" class="headerlink" title="坐标轴"></a>坐标轴</h2><p>坐标轴设定很多，这里就写一些常用的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 坐标轴标签</span></span><br><span class="line">plt.xlabel(<span class="string">"X"</span>,fontsize=<span class="number">10</span>,fontweight=<span class="string">'bold'</span>)</span><br><span class="line"><span class="comment"># 坐标轴范围</span></span><br><span class="line">plt.axis(xlim=(xmin, xmax), ylim=(ymin, ymax))</span><br><span class="line">plt.axis([xmin, xmax, ymin, ymax])</span><br><span class="line">plt.xlim(xmin, xmax)</span><br><span class="line"><span class="comment"># 不显示坐标轴</span></span><br><span class="line">plt.axis(<span class="string">'off'</span>)</span><br><span class="line"><span class="comment"># 横纵坐标轴刻度相等</span></span><br><span class="line">plt.axis(<span class="string">'equal'</span>)</span><br><span class="line"><span class="comment"># 坐标轴刻度标签</span></span><br><span class="line">plt.xticks([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br></pre></td></tr></table></figure></p>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p><code>tensorflow 2</code>的个人安装过程，以及解决出现的一些问题。<br><a id="more"></a></p>
+<h2 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h2><p>我安装的版本是 <code>tensorflow 2.1.0</code>，这个版本以及可以支持 CPU 和 GPU 的运行与计算。</p>
+<ul>
+<li>Python 3.5-3.7</li>
+<li>pip 19.0 或更高版本（需要 manylinux2010 支持）</li>
+<li>Ubuntu 16.04 或更高版本（64 位）</li>
+<li>macOS 10.12.6 (Sierra) 或更高版本（64 位）（不支持 GPU）</li>
+<li>Windows 7 或更高版本（64 位）（仅支持 Python 3）</li>
+<li>Raspbian 9.0 或更高版本</li>
+<li>GPU 支持需要使用支持 CUDA® 的卡（适用于 Ubuntu 和 Windows）</li>
+</ul>
+<h2 id="Windows安装过程"><a href="#Windows安装过程" class="headerlink" title="Windows安装过程"></a>Windows安装过程</h2><p>本人是Windows系统，下面写一下Windows安装的过程。Windows安装需要注意以下几点：</p>
+<ol>
+<li>安装适用于 Visual Studio 2015、2017 和 2019 的 Microsoft Visual C++ Redistributable。从 <code>TensorFlow 2.1.0</code> 版开始，此软件包需要 <code>msvcp140_1.dll</code> 文件（旧版可再发行软件包可能不提供此文件）。 该可再发行软件包随附在 Visual Studio 2019 中，但可以单独安装。</li>
+<li>确保在 Windows 上启用了长路径</li>
+<li>安装 64 位适用于 Windows 的 Python 3 版本</li>
+</ol>
+<h3 id="Microsoft-Visual-C-Redistributable安装"><a href="#Microsoft-Visual-C-Redistributable安装" class="headerlink" title="Microsoft Visual C++ Redistributable安装"></a>Microsoft Visual C++ Redistributable安装</h3><p>如果电脑里安装了Visual Studio 2015, 2017 and 2019，这一步就不用了，如果没有，你那这一步还是好好安装，要不然就会出现<code>ImportError: DLL load failed</code>错误。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py"</span>, line <span class="number">58</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow.python.pywrap_tensorflow_internal <span class="keyword">import</span> *</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py"</span>, line <span class="number">28</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    _pywrap_tensorflow_internal = swig_import_helper()</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py"</span>, line <span class="number">24</span>, <span class="keyword">in</span> swig_import_helper</span><br><span class="line">    _mod = imp.load_module(<span class="string">'_pywrap_tensorflow_internal'</span>, fp, pathname, description)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\imp.py"</span>, line <span class="number">242</span>, <span class="keyword">in</span> load_module</span><br><span class="line">    <span class="keyword">return</span> load_dynamic(name, filename, file)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\imp.py"</span>, line <span class="number">342</span>, <span class="keyword">in</span> load_dynamic</span><br><span class="line">    <span class="keyword">return</span> _load(spec)</span><br><span class="line">ImportError: DLL load failed: The specified module could <span class="keyword">not</span> be found.</span><br><span class="line"></span><br><span class="line">During handling of the above exception, another exception occurred:</span><br><span class="line"></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow\__init__.py"</span>, line <span class="number">101</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow_core <span class="keyword">import</span> *</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\__init__.py"</span>, line <span class="number">40</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow.python.tools <span class="keyword">import</span> module_util <span class="keyword">as</span> _module_util</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow\__init__.py"</span>, line <span class="number">50</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    module = self._load()</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow\__init__.py"</span>, line <span class="number">44</span>, <span class="keyword">in</span> _load</span><br><span class="line">    module = _importlib.import_module(self.__name__)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\importlib\__init__.py"</span>, line <span class="number">127</span>, <span class="keyword">in</span> import_module</span><br><span class="line">    <span class="keyword">return</span> _bootstrap._gcd_import(name[level:], package, level)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\__init__.py"</span>, line <span class="number">49</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow.python <span class="keyword">import</span> pywrap_tensorflow</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py"</span>, line <span class="number">74</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">raise</span> ImportError(msg)</span><br><span class="line">ImportError: Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow.py"</span>, line <span class="number">58</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow.python.pywrap_tensorflow_internal <span class="keyword">import</span> *</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py"</span>, line <span class="number">28</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    _pywrap_tensorflow_internal = swig_import_helper()</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\site-packages\tensorflow_core\python\pywrap_tensorflow_internal.py"</span>, line <span class="number">24</span>, <span class="keyword">in</span> swig_import_helper</span><br><span class="line">    _mod = imp.load_module(<span class="string">'_pywrap_tensorflow_internal'</span>, fp, pathname, description)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\imp.py"</span>, line <span class="number">242</span>, <span class="keyword">in</span> load_module</span><br><span class="line">    <span class="keyword">return</span> load_dynamic(name, filename, file)</span><br><span class="line">  File <span class="string">"C:\Development\Python\Python37\lib\imp.py"</span>, line <span class="number">342</span>, <span class="keyword">in</span> load_dynamic</span><br><span class="line">    <span class="keyword">return</span> _load(spec)</span><br><span class="line">ImportError: DLL load failed: The specified module could <span class="keyword">not</span> be found.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Failed to load the native TensorFlow runtime.</span><br><span class="line"></span><br><span class="line">See https://www.tensorflow.org/install/errors</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> some common reasons <span class="keyword">and</span> solutions.  Include the entire stack trace</span><br><span class="line">above this error message when asking <span class="keyword">for</span> help.</span><br></pre></td></tr></table></figure></p>
+<p>解决方案就是去<a href="https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads" target="_blank" rel="noopener">Microsoft Visual C++下载</a>页面，下载x64: <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank" rel="noopener">vc_redist.x64.exe</a>， 完成安装。因为你的电脑必须要是64位的，才能安装64位的 <code>Python 3</code>，才能满足 <code>tensorflow 2.1.0</code>的安装要求。</p>
+<h3 id="长路径"><a href="#长路径" class="headerlink" title="长路径"></a>长路径</h3><p>长路径好像不启用，也没什么问题，但保险起见，还是打开吧，反正也挺容易的。</p>
+<ol>
+<li>按 <code>win+R</code>，输入 <code>gpedit.msc</code>，打开本地策略组编辑器</li>
+<li>依次选择 <code>计算机配置</code> &gt; <code>管理模板</code> &gt; <code>系统</code> &gt; <code>文件系统</code></li>
+<li>在 <code>文件系统</code> 界面下，选择 <code>启用 Win32 长路径</code>，双击打开，选择<code>已启用</code>，然后确定关闭。</li>
+</ol>
+<h3 id="64位-Python-3"><a href="#64位-Python-3" class="headerlink" title="64位 Python 3"></a>64位 <code>Python 3</code></h3><p>一定要安装64位的 <code>Python 3</code>。查看 <code>Python 3</code> 版本方式有很多，下面写两个最简单的。</p>
+<ol>
+<li><p>打开 <code>cmd</code> 命令行， 输入 <code>python -VV</code>。<code>python -V</code> 是简略的版本信息，<code>python -VV</code> 信息更加详细，包括位数信息，我的64位版本信息如下：</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Python <span class="number">3</span>.<span class="number">7</span>.<span class="number">5</span> (tags/v3.<span class="number">7</span>.<span class="number">5</span>:<span class="number">5</span>c02a39a0b, Oct <span class="number">15</span> <span class="number">2019</span>, <span class="number">00</span>:<span class="number">11</span>:<span class="number">34</span>) [MSC v.<span class="number">1916</span> <span class="number">64</span> bit (AMD64)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开python命令行，最开始出现的消息里面就有位数信息。</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\*******&gt;<span class="title">python</span></span></span><br><span class="line"><span class="function"><span class="title">Python</span> 3.7.5 (<span class="title">tags</span>/<span class="title">v3</span>.7.5:5<span class="title">c02a39a0b</span>, <span class="title">Oct</span> 15 2019, 00:11:34) [<span class="title">MSC</span> <span class="title">v</span>.1916 64 <span class="title">bit</span> (<span class="title">AMD64</span>)] <span class="title">on</span> <span class="title">win32</span></span></span><br><span class="line"><span class="function"><span class="title">Type</span> "<span class="title">help</span>", "<span class="title">copyright</span>", "<span class="title">credits</span>" <span class="title">or</span> "<span class="title">license</span>" <span class="title">for</span> <span class="title">more</span> <span class="title">information</span>.</span></span><br><span class="line"><span class="function">&gt;&gt;&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>在 Windows 上，仅支持在 <code>Python 3</code> 64位版本下， 安装 <code>TensorFlow 2.1.0</code>，如果是 <code>Python 2</code> 版本， 在 Windows 上是实现不了的。</p>
+<h3 id="安装-TensorFlow-2-1-0"><a href="#安装-TensorFlow-2-1-0" class="headerlink" title="安装 TensorFlow 2.1.0"></a>安装 <code>TensorFlow 2.1.0</code></h3><p>安装使用 <code>pip</code> 工具，19.0 或者更高版本。如果在虚拟环境里安装，注意先要更新 <code>pip</code>，然后在进行 <code>pip</code> 的安装 ( <code>python -m pip install --upgrade pip</code> )。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure></p>
+<p>由于安装包比较大，推荐使用国内镜像，在命令行后加 <code>-i [https://xxxxx]</code> 即可，下面是使用清华镜像源，你也可以永久修改默认源的使用，这里就不介绍了。<br><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></p>
+<h2 id="GPU-安装支持"><a href="#GPU-安装支持" class="headerlink" title="GPU 安装支持"></a>GPU 安装支持</h2><p>如果你进行了以上安装，不出意外的话，<code>tensorflow</code> 应该是安装成功了，但你在使用时可能会看到以下警告，因为现在的 <code>tensorflow</code> 只能使用 CPU，无法使用 GPU。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2020</span>-xx-xx xx:xx:xx.xxxxxx: W tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">55</span>] Could <span class="keyword">not</span> load dynamic library <span class="string">'cudart64_101.dll'</span>; dlerror: cudart64_101.dll <span class="keyword">not</span> found</span><br><span class="line"></span><br><span class="line"><span class="number">2020</span>-xx-xx xx:xx:xx.xxxxxx: I tensorflow/stream_executor/cuda/cudart_stub.cc:<span class="number">29</span>] Ignore above cudart dlerror <span class="keyword">if</span> you do <span class="keyword">not</span> have a GPU set up on your machine.</span><br></pre></td></tr></table></figure></p>
+<p>首先查看你的 GPU 是否支持 CUDA，点击<a href="http://developer.nvidia.com/cuda-gpus" target="_blank" rel="noopener">查询页面</a>查找自己的显卡是否在列表内。或者使用”显卡名称 + specification“进行搜索，直接查看自己的显卡信息。</p>
+<p>显卡支持后，如果要使用 GPU，还需要安装下面几个软件：</p>
+<ul>
+<li>NVIDIA Graphic Drivers (一般都有)</li>
+<li><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">NVIDIA CUDA Toolkit</a>, <a href="http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html" target="_blank" rel="noopener">CUDA 安装文档</a></li>
+<li><a href="https://developer.nvidia.com/rdp/cudnn-download" target="_blank" rel="noopener">cuDNN SDK</a>, <a href="https://docs.nvidia.com/deeplearning/sdk/cudnn-install/#install-windows" target="_blank" rel="noopener">cuDNN 安装文档</a></li>
+</ul>
+<p>CUDA 选择 10.1 版本，cuDNN 选择配套版本。安装完成后，<code>import tensorflow</code> 不报错，无警告，应该就成功了。</p>
+<h2 id="检查使用情况"><a href="#检查使用情况" class="headerlink" title="检查使用情况"></a>检查使用情况</h2><p>最后，在看看自己设备上的使用信息。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.python.client <span class="keyword">import</span> device_lib</span><br><span class="line">print(device_lib.list_local_devices())</span><br><span class="line"></span><br><span class="line">[name: <span class="string">"/device:CPU:0"</span></span><br><span class="line">device_type: <span class="string">"CPU"</span></span><br><span class="line">memory_limit: <span class="number">268435456</span></span><br><span class="line">locality &#123;</span><br><span class="line">&#125;</span><br><span class="line">incarnation: <span class="number">11567553738839476818</span></span><br><span class="line">, name: <span class="string">"/device:GPU:0"</span></span><br><span class="line">device_type: <span class="string">"GPU"</span></span><br><span class="line">memory_limit: <span class="number">6661821563</span></span><br><span class="line">locality &#123;</span><br><span class="line">  bus_id: <span class="number">1</span></span><br><span class="line">  links &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">incarnation: <span class="number">17494855292993829603</span></span><br><span class="line">physical_device_desc: <span class="string">"device: 0, name: GeForce GTX 1070 Ti, pci bus id: 0000:01:00.0, compute capability: 6.1"</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<p>至此，结束，感觉挺麻烦的。</p>
 
       
     </div>
@@ -433,7 +475,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://niro8.github.io/matplotlib-notes.html" title="matplotlib笔记">https://niro8.github.io/matplotlib-notes.html</a>
+    <a href="https://niro8.github.io/install-tensorflow2.html" title="tensorflow 2 安装以及 ImportError: DLL load failed解决">https://niro8.github.io/install-tensorflow2.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -448,7 +490,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/matplotlib/" rel="tag"><i class="fa fa-tag"></i> matplotlib</a>
+            <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> tensorflow</a>
           
         </div>
       
@@ -461,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/selenium-notes.html" rel="next" title="selenium笔记">
-                <i class="fa fa-chevron-left"></i> selenium笔记
+              <a href="/hands-on-chapter3-notes.html" rel="next" title="机器学习实战第3章笔记">
+                <i class="fa fa-chevron-left"></i> 机器学习实战第3章笔记
               </a>
             
           </div>
@@ -470,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/pandas-notes.html" rel="prev" title="pandas笔记">
-                pandas笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -632,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#交互绘图"><span class="nav-number">1.</span> <span class="nav-text">交互绘图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量"><span class="nav-number">2.</span> <span class="nav-text">全局变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#风格"><span class="nav-number">3.</span> <span class="nav-text">风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">4.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坐标轴"><span class="nav-number">5.</span> <span class="nav-text">坐标轴</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统要求"><span class="nav-number">1.</span> <span class="nav-text">系统要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows安装过程"><span class="nav-number">2.</span> <span class="nav-text">Windows安装过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Microsoft-Visual-C-Redistributable安装"><span class="nav-number">2.1.</span> <span class="nav-text">Microsoft Visual C++ Redistributable安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#长路径"><span class="nav-number">2.2.</span> <span class="nav-text">长路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#64位-Python-3"><span class="nav-number">2.3.</span> <span class="nav-text">64位 Python 3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-TensorFlow-2-1-0"><span class="nav-number">2.4.</span> <span class="nav-text">安装 TensorFlow 2.1.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU-安装支持"><span class="nav-number">3.</span> <span class="nav-text">GPU 安装支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查使用情况"><span class="nav-number">4.</span> <span class="nav-text">检查使用情况</span></a></li></ol></div>
             
 
           </div>
@@ -815,9 +853,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://niro8.github.io/matplotlib-notes.html';
-          this.page.identifier = 'matplotlib-notes.html';
-          this.page.title = 'matplotlib笔记';
+          this.page.url = 'https://niro8.github.io/install-tensorflow2.html';
+          this.page.identifier = 'install-tensorflow2.html';
+          this.page.title = 'tensorflow 2 安装以及 ImportError: DLL load failed解决';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://shuyue.disqus.com/embed.js';

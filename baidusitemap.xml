@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>https://niro8.github.io/install-tensorflow2.html</loc>
+    <lastmod>2020-03-22T13:38:00.451Z</lastmod>
+    <data>
+        <display>
+        <title>tensorflow 2 安装以及 ImportError: DLL load failed解决</title>
+        <pubTime>2020-03-22T11:38:03.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://niro8.github.io/office-with-python.html</loc>
     <lastmod>2020-03-12T01:23:39.091Z</lastmod>
     <data>
@@ -38,9 +55,9 @@
         <title>机器学习实战第2章笔记</title>
         <pubTime>2019-12-06T13:17:49.000Z</pubTime>
         
-        <tag>机器学习实战</tag>
-         
         <tag>machine learning</tag>
+         
+        <tag>机器学习实战</tag>
          
          
            
